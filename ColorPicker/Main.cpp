@@ -40,10 +40,6 @@ int main()
 		if (isOutside == false) {
 			mousePositionFloat = static_cast<sf::Vector2f>(sf::Mouse::getPosition(window));
 		}
-		if (isOutside == true) {
-			//isOutside = false;
-		}
-		
 		sf::FloatRect spriteBox(sprite.getPosition().x - sprite.getRadius(), sprite.getPosition().y - sprite.getRadius(), sprite.getRadius() * 2, sprite.getRadius() * 2);
 		checkEdges(sprite, mousePositionFloat, isOutside);
 		if (spriteBox.contains(mousePositionFloat)) {
@@ -68,8 +64,8 @@ int main()
 }
 
 void checkEdges(sf::CircleShape cir, sf::Vector2f &mpf, bool &io) {
-	if (cir.getPosition().x < 0) { cir.setPosition(0, cir.getPosition().y); mpf.x = 0; }//io = true;}
-	if (cir.getPosition().x > width) { cir.setPosition(width, cir.getPosition().y); mpf.x = width - 1; }// io = true;}
-	if (cir.getPosition().y < 0) { cir.setPosition(cir.getPosition().x, 0); mpf.y = 0 + 1; }//io = true;}
-	if (cir.getPosition().y > height) { cir.setPosition(cir.getPosition().x, height); mpf.y = height - 1; } //io = true;}
+	if (cir.getPosition().x < 0) { cir.setPosition(0, cir.getPosition().y); mpf.x = 0; }
+	if (cir.getPosition().x > width) { cir.setPosition(width, cir.getPosition().y); mpf.x = width - 1; }
+	if (cir.getPosition().y < 0) { cir.setPosition(cir.getPosition().x, 0); mpf.y = 0 + 1; }
+	if (cir.getPosition().y > height) { cir.setPosition(cir.getPosition().x, height); mpf.y = height - 1; }
 }
